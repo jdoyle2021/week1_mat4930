@@ -1,0 +1,34 @@
+import pickle                           # Load and save pickle files.
+import datetime                         # Handle date/time objects.
+import re                               # Regular expressions.
+import matplotlib as mpl                # Plot things.
+import folium                           # Plot interactive maps.
+import numpy as np                      # Basic math and array operations.
+import scipy as sp                      # More math and array operations.
+
+# Import the forecast data.
+with open('forecasts_2022_nicole.pkl','rb') as f:
+    forecasts = pickle.load(f)
+    
+#this will create the empty list for the true times
+true_times = []
+
+#this for-loop will iterate through each indexed item in the forecasts list
+for i in forecasts:
+    #having the i[0][0] iterates through the list within the already nested lists
+    #this then appends, or adds, each of the values that are of index 0 of index 0 for each nested list in forecasts
+     true_times.append(i[0][0])
+
+#print true_times list
+true_times
+
+for times in range(len(true_times)):
+    t0 = true_times[0]
+    t1 = true_times[1]
+    true_times_sec = []
+    for x in true_times:
+        dt = true_times[x(times+1)]-true_times[x(times)]
+        t2 = t0 + datetime.timedelta(seconds=10000)
+        true_times_sec.append(t2)
+
+true_times_sec
